@@ -1,0 +1,68 @@
+package com.future.my.member.web;
+
+import java.io.UnsupportedEncodingException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.future.my.member.service.MemberService;
+import com.future.my.member.vo.MemberVO;
+
+@Controller
+public class MemberController {
+	
+	@Autowired
+	MemberService memberService;
+	
+	@RequestMapping("/registView")
+	public String registView() {
+		return "member/registView";
+	}
+	
+	@RequestMapping("/registDo")
+	public String registDo(HttpServletRequest request) {
+		
+		try {
+			request.setCharacterEncoding("UTF-8");
+		}catch(UnsupportedEncodingException e1) {
+			e1.printStackTrace();
+		}
+		
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		String name = request.getParameter("name");
+		
+		System.out.println("id = " + id);
+		System.out.println("pw = " + pw);
+		System.out.println("name = " + name);
+		
+		MemberVO member = new MemberVO(id, pw, name);
+		try {
+			memberService.registMember(member);
+		} catch(Exception e) {
+			e.printStackTrace();
+			return "errorPage";
+		}
+		
+		return "redirect:/";
+	}
+	
+	@RequestMapping("/loginDo")
+	public String loginDo(MemberVO member, HttpSession session) throws Exception{
+		
+		System.out.println("id = " + member.getMemId());
+		System.out.println("pw = " + member.getMemPw());
+		
+		MemberVO login = memberService.loginMember(member);
+		
+		session.setAttribute("login", login);
+		
+		System.out.println("controller: " + login);
+		
+		return "redirect:/";
+	}
+}

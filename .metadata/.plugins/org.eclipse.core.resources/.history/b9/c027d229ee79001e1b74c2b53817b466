@@ -1,0 +1,18 @@
+package com.future.my.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.future.my.free.vo.FreeBoardVO;
+
+@Service("freeBoardService")
+public class freeBoardServiceImpl implements FreeBoardService {
+
+	@Override
+	public List<FreeBoardVO> getBoardList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,16 @@
+package com.future.my.free.web;
+
+@Controller
+public class FreeBoardController {
+	
+	@RequestMapping("/freeList")
+	public String freeBoardList(Model model
+			, @ModelAttribute("searchVO") FreeBoardSearchVO searchVO) {
+//		List<FreeBoardVO> freeBoardList = 
+//				freeBoardService.getBoardList(searchVO);
+//		model.addAttribute("freeList", freeBoardList);
+		
+		return "free/freeList";
+	}
+
+}

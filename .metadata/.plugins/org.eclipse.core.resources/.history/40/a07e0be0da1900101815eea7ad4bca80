@@ -1,0 +1,13 @@
+package com.future.my.board.vo;
+
+public class BoardVO {
+	private Integer boardNo;
+	private String boardTitle;
+	private String boardContent;
+	private String memId;
+	private String memName;
+	private String createDate;
+	private String updateDate;
+	
+	
+}

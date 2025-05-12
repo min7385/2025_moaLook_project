@@ -1,0 +1,21 @@
+package com.future.my.member.vo;
+
+public class MemberVO {
+	
+	private String memId;
+	private String memPw;
+	private String memName;
+	
+	public MemberVO(String memId, String memPw, String memName) {
+		super();
+		this.memId = memId;
+		this.memPw = memPw;
+		this.memName = memName;
+	}
+
+
+	public String getMemId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

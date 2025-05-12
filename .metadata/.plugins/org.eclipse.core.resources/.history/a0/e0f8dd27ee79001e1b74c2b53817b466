@@ -1,0 +1,10 @@
+package com.future.my.service;
+
+import java.util.List;
+
+import com.future.my.free.vo.FreeBoardVO;
+
+public interface freeBoardService {
+	
+	public List<FreeBoardVO> getBoardList();
+}

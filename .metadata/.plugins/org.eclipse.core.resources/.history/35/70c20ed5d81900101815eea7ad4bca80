@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.future.my.board.dao.IBoardDAO">
+	
+	<select>
+		
+		SELECT 
+		      a.board_no
+		    , a.board_title
+		    , a.board_content
+		    , a.mem_id
+		    , b.mem_name
+		    , a.update_dt
+		FROM 
+		    boards a, members b
+		WHERE 1=1
+		  AND a.mem_id = b.mem_id;
+		
+		
+		
+		
+		
+		
+		
+	</select>

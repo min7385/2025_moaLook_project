@@ -1,0 +1,5 @@
+package com.future.my.board.web;
+
+public class BoardController {
+
+}

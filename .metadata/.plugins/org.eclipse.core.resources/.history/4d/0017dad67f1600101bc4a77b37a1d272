@@ -1,0 +1,24 @@
+<%--
+/**
+ * <pre>
+ * 1. 프로젝트명 : 에코알라 프로젝트
+ * 2. 작성일 : 2025. 4. 11. 오전 11:45:51
+ * 3. 작성자 : LeeApGil
+ * 4. 화면ID : 화면정의서 화면ID
+ * 5. 화면명 : 화면정의서의 화면명
+ * 6. 설명 : 화면명과 동일하거나 기타 특이사항 기술
+ * </pre>
+ */
+--%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>
