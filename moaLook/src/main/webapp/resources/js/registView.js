@@ -25,7 +25,7 @@ $(document).ready(function(){
       signin_btn.text("회원가입");
       
       // form 태그 동적으로 변경
-      form.attr("action", "${pageContext.request.contextPath}/registDo");
+      form.attr("action", contextPath + "/registDo");
     });
     
   
@@ -44,8 +44,8 @@ $(document).ready(function(){
       signin_btn.text("로그인");
       
       // form 태그 동적으로 변경
-      form.attr("action", "${pageContext.request.contextPath}/loginDo");
-    });
+      form.attr("action", contextPath + "/loginDo");
+   });
    
    //----------- reset ---------------------
    reset.on("click",function(e){

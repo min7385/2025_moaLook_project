@@ -22,7 +22,11 @@
 	<!-- 정적 리소스 연결 (CSS 등) -->
  	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/registView.css">
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+	
+	<script>
+    	const contextPath = "${pageContext.request.contextPath}";
+	</script>
+	
 </head>
 <body>
 	<div class="container">
@@ -40,11 +44,11 @@
 		<form action="${pageContext.request.contextPath}/loginDo" method="post">
 			<!-- id input -->
 			<div class="first-input input__block first-input__block">
-				<input type="text" placeholder="ID" class="input" id="id" name="memId" required value="${cookie.rememberId.value}" />
+				<input type="text" placeholder="ID" class="input" id="id" name="id" required value="${cookie.rememberId.value}" />
 			</div>
 			<!-- password input -->
 			<div class="input__block">
-				<input type="password" placeholder="PW" class="input" id="pw" name="memPw" required />
+				<input type="password" placeholder="PW" class="input" id="pw" name="pw" required />
 			</div>
 			<!-- repeat password input -->
 			<div class="input__block">
@@ -59,7 +63,6 @@
  				<button type="sumbit" class="signin__btn">로그인</button>
 			</div>
 		</form>
-		<!-- regist Form -->
 		
 		<!-- separator -->
 		<div class="separator">
