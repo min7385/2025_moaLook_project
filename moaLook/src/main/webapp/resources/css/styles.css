@@ -114,7 +114,7 @@ hr {
 
 h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0rem;
   font-weight: 500;
   line-height: 1.2;
 }
@@ -10822,5 +10822,18 @@ textarea.form-control-lg {
   }
   .d-print-none {
     display: none !important;
+  }
+  /* 직접 추가한 CSS */
+  /* boardWriteView에서 파일 선택했을 때 미리보기 */
+  #imagePreviewContainer img {
+    max-width: 100%; /* 부모 요소 너비(여기서는 imagePreviewContainer)를 넘지 않도록 합니다. */
+    height: auto;    /* 이미지의 가로세로 비율을 자동으로 유지합니다. */
+    display: block;  /* 이미지 아래에 생기는 여백을 제거하고 블록 요소로 만듭니다. */
+    margin-top: 10px; /* 파일 입력 필드와의 간격을 줍니다. */
+    border-radius: 8px; /* 둥근 모서리로 보기 좋게 만듭니다. */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 은은한 그림자 효과를 줍니다. */
+  }
+  .mb-3.image-upload-section {
+    overflow: hidden !important;
   }
 }
