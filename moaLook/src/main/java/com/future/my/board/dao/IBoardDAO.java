@@ -11,4 +11,6 @@ public interface IBoardDAO {
 	
 	public List<BoardVO> getBoardList();
 	public int writeBoard(BoardVO board);
+	public BoardVO getBoard(int boardNo);
+	
 }

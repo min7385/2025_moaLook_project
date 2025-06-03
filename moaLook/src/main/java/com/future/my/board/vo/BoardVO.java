@@ -1,6 +1,9 @@
 package com.future.my.board.vo;
 
+import com.future.my.board.enums.StyleType;
+
 public class BoardVO {
+	
 	private Integer boardNo;
 	private String boardTitle;
 	private String boardContent;
@@ -8,7 +11,15 @@ public class BoardVO {
 	private String memName;
 	private String createDate;
 	private String updateDate;
+	private Integer styleType;
+	private String boardImgPath;
 	
+	public String getBoardImgPath() {
+		return boardImgPath;
+	}
+	public void setBoardImgPath(String boardImgPath) {
+		this.boardImgPath = boardImgPath;
+	}
 	public Integer getBoardNo() {
 		return boardNo;
 	}
@@ -51,12 +62,26 @@ public class BoardVO {
 	public void setUpdateDate(String updateDate) {
 		this.updateDate = updateDate;
 	}
+	public Integer getStyleType() {
+		return styleType;
+	}
+	public void setStyleType(Integer styleType) {
+		this.styleType = styleType;
+	}
 	
+	// 메서드 추가: input 태그의 value를 텍스트로 변환 
+    public String getStyleTypeName() {
+        if (this.styleType == null) {
+            return StyleType.UNKNOWN.getDescription();
+        }
+        return StyleType.getDescriptionByCode(this.styleType);
+    }
+    
 	@Override
 	public String toString() {
 		return "BoardVO [boardNo=" + boardNo + ", boardTitle=" + boardTitle + ", boardContent=" + boardContent
 				+ ", memId=" + memId + ", memName=" + memName + ", createDate=" + createDate + ", updateDate="
-				+ updateDate + "]";
+				+ updateDate + ", styleType=" + styleType + ", boardImgPath=" + boardImgPath + "]";
 	}
 
 }

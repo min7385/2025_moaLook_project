@@ -28,4 +28,13 @@ public class BoardService {
 		}
 	}
 	
+	public BoardVO getBoard(int boardNo) throws Exception{
+		BoardVO result = dao.getBoard(boardNo);
+		
+		if(result == null) {
+			throw new Exception();
+		}
+		return result;
+	}
+	
 }
