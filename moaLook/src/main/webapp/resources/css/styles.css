@@ -10836,4 +10836,9 @@ textarea.form-control-lg {
   .mb-3.image-upload-section {
     overflow: hidden !important;
   }
+  /* 페이지 네이션 가운데 정렬 */
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+  }
 }

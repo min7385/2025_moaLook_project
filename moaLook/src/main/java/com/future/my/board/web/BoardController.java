@@ -9,11 +9,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.future.my.board.service.BoardService;
+import com.future.my.board.vo.BoardSearchVO;
 import com.future.my.board.vo.BoardVO;
 import com.future.my.member.vo.MemberVO;
 
@@ -24,10 +26,28 @@ public class BoardController {
 	BoardService boardService;
 	
 	@RequestMapping("/boardView")
-	public String boardView(Model model, HttpSession session) {
+	// 기존 boardView 메서드를 페이징 및 검색 기능을 포함하도록 변경
+	public String boardView(Model model, HttpSession session, @ModelAttribute("searchVO") BoardSearchVO searchVO) {
 		
-		List<BoardVO> boardList = boardService.getBoardList();
+		List<BoardVO> boardList = boardService.getBoardList(searchVO);
 		model.addAttribute("boardList", boardList);
+		
+		// 디버깅 용도
+//		System.out.println("--- BoardSearchVO Debug Info ---");
+//		System.out.println("totalRowCount (전체 게시글 수): " + searchVO.getTotalRowCount());
+//		System.out.println("BoardSearchVO.curPage (현재 페이지): " + searchVO.getCurPage());
+//		System.out.println("BoardSearchVO.rowSizePerPage (페이지당 레코드 수): " + searchVO.getRowSizePerPage());
+//		System.out.println("BoardSearchVO.pageSize (페이지 리스트 크기): " + searchVO.getPageSize());
+//		System.out.println("BoardSearchVO.firstRow (시작 레코드): " + searchVO.getFirstRow());
+//		System.out.println("BoardSearchVO.lastRow (마지막 레코드): " + searchVO.getLastRow());
+//		System.out.println("BoardSearchVO.totalPageCount (총 페이지 수): " + searchVO.getTotalPageCount());
+//		System.out.println("BoardSearchVO.firstPage (페이지네이션 시작): " + searchVO.getFirstPage());
+//		System.out.println("BoardSearchVO.lastPage (페이지네이션 끝): " + searchVO.getLastPage());
+//		System.out.println("BoardSearchVO.searchType: " + searchVO.getSearchType());
+//		System.out.println("BoardSearchVO.searchWord: " + searchVO.getSearchWord());
+//		System.out.println("BoardSearchVO.searchCategory: " + searchVO.getSearchCategory());
+//		System.out.println("-------------------------");
+		
 		return "board/boardView";
 	}
 	
