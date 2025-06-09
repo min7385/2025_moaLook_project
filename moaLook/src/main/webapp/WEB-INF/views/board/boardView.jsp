@@ -81,6 +81,56 @@
                 	<button class="btn btn-primary btn-xl" type="button" onclick="location.href='${pageContext.request.contextPath}/boardWriteView'">글작성</button>
                 </div>
             </div>
+			<!-- 페이지네이션 UI 시작 -->
+	        <div class="pagination-container">
+	            <nav aria-label="Page navigation">
+	                <ul class="pagination justify-content-center">
+	                    <!-- 이전 페이지 그룹 (예: << 버튼) -->
+	                    <c:if test="${searchVO.firstPage > 1}">
+	                        <li class="page-item">
+	                            <a class="page-link" href="<c:url value="/boardView">
+	                                <c:param name="curPage" value="${searchVO.firstPage - 1}"/>
+	                                <c:param name="rowSizePerPage" value="${searchVO.rowSizePerPage}"/>
+	                                <c:param name="searchType" value="${searchVO.searchType}"/>
+	                                <c:param name="searchWord" value="${searchVO.searchWord}"/>
+	                                <c:param name="searchCategory" value="${searchVO.searchCategory}"/>
+	                            </c:url>" aria-label="Previous">
+	                                <span aria-hidden="true">&laquo;</span>
+	                            </a>
+	                        </li>
+	                    </c:if>
+	
+	                    <!-- 페이지 번호들 (1, 2, 3, ...) -->
+	                    <c:forEach begin="${searchVO.firstPage}" end="${searchVO.lastPage}" var="i">
+	                        <li class="page-item <c:if test="${i eq searchVO.curPage}">active</c:if>">
+	                            <a class="page-link" href="<c:url value="/boardView">
+	                                <c:param name="curPage" value="${i}"/>
+	                                <c:param name="rowSizePerPage" value="${searchVO.rowSizePerPage}"/>
+	                                <c:param name="searchType" value="${searchVO.searchType}"/>
+	                                <c:param name="searchWord" value="${searchVO.searchWord}"/>
+	                                <c:param name="searchCategory" value="${searchVO.searchCategory}"/>
+	                            </c:url>">${i}</a>
+	                        </li>
+	                    </c:forEach>
+	
+	                    <!-- 다음 페이지 그룹 (예: >> 버튼) -->
+	                    <c:if test="${searchVO.lastPage < searchVO.totalPageCount}">
+	                        <li class="page-item">
+	                            <a class="page-link" href="<c:url value="/boardView">
+	                                <c:param name="curPage" value="${searchVO.lastPage + 1}"/>
+	                                <c:param name="rowSizePerPage" value="${searchVO.rowSizePerPage}"/>
+	                                <c:param name="searchType" value="${searchVO.searchType}"/>
+	                                <c:param name="searchWord" value="${searchVO.searchWord}"/>
+	                                <c:param name="searchCategory" value="${searchVO.searchCategory}"/>
+	                            </c:url>" aria-label="Next">
+	                                <span aria-hidden="true">&raquo;</span>
+	                            </a>
+	                        </li>
+	                    </c:if>
+	                </ul>
+	            </nav>
+	        </div>
+	        <!-- 페이지네이션 UI 끝 -->
         </section>
         
         <jsp:include page="/WEB-INF/inc/footer.jsp"></jsp:include>

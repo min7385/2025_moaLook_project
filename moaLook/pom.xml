@@ -152,9 +152,17 @@
 	    <dependency>
 	        <groupId>commons-io</groupId>
 	        <artifactId>commons-io</artifactId>
-	        <version>2.8.0</version> </dependency>
+	        <version>2.8.0</version>
+	    </dependency>
+	    
+	    <!-- 문자열, 숫자 등을 조작하는 기능이며, 게시판 검색 용도 -->
+	    <dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.11</version>
+		</dependency>
 	        
-	</dependencies>
+</dependencies>
     <build>
         <plugins>
             <plugin>
