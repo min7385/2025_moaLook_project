@@ -1,9 +1,0 @@
-package com.future.my.board.dao;
-
-import org.apache.ibatis.annotations.Mapper;
-
-@Mapper
-public interface IBoardDAO {
-	
-	public List<BoardVO> getBoardList();
-}
