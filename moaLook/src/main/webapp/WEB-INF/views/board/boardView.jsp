@@ -44,7 +44,6 @@
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    
                     <!-- boardList의 데이터 수만큼 갤러리 카드를 반복하여 생성 -->
                     <c:forEach items="${boardList}" var="board">
 	                    <div class="col mb-5">
@@ -53,7 +52,7 @@
 								<c:if test="${not empty board.boardImgPath}">
 					                <img src="${pageContext.request.contextPath}/uploaded_images/${board.boardImgPath}"
 					                     class="card-img-top" alt="게시글 이미지"
-					                     style="width: 100%; height: 200px; object-fit: cover;">
+					                     style="width: 100%; height: 350px; object-fit: contain;">
 					            </c:if>
 					            <c:if test="${empty board.boardImgPath}">
 					                <img src="${pageContext.request.contextPath}/resources/img/default_board_img.png"
@@ -61,16 +60,16 @@
 					                     style="width: 100%; height: 200px; object-fit: cover;">
 					            </c:if>	                            
 	                            <!-- Product details-->
-	                            <div class="card-body p-4">
+	                            <div class="card-body p-3">
 	                                <div class="text-center">
                                 		<!-- Look image -->	
-	                                    <h5 class="fw-bolder">${board.boardTitle}</h5>
+	                                    <h5 class="fw-bolder board-title-ellipsis" title="${board.boardTitle}">${board.boardTitle}</h5>
 	                                    <h6>${board.styleTypeName}</h6>
 	                                    <h6>${board.createDate}</h6>                              	
 	                                </div>
 	                            </div>
 	                            <!-- Product actions-->
-	                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+	                            <div class="card-footer p-3 border-top-0 bg-transparent">
 	                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="<c:url value="/boardDetailView?boardNo=${board.boardNo}"/>">상세보기</a></div>
 	                            </div>
 	                        </div>
@@ -140,4 +139,13 @@
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>
+    <style>
+	/* 제목(title)을 한 줄로 제한하고 넘칠 경우 ...으로 표시 */
+	.board-title-ellipsis {
+	    white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    max-width: 100%;
+	}
+	</style>
 </html>
