@@ -44,15 +44,15 @@
 		<form action="${pageContext.request.contextPath}/loginDo" method="post">
 			<!-- id input -->
 			<div class="first-input input__block first-input__block">
-				<input type="text" placeholder="ID" class="input" id="id" name="id" required value="${cookie.rememberId.value}" />
+				<input type="text" placeholder="ID" class="input" id="id" name="memId" required value="${cookie.rememberId.value}" />
 			</div>
 			<!-- password input -->
 			<div class="input__block">
-				<input type="password" placeholder="PW" class="input" id="pw" name="pw" required />
+				<input type="password" placeholder="PW" class="input" id="pw" name="memPw" required />
 			</div>
 			<!-- repeat password input -->
 			<div class="input__block">
-				<input type="text" placeholder="닉네임" class="input" id="name" name="name" style="display: none; opacity: 0;" />
+				<input type="text" placeholder="닉네임" class="input" id="name" name="memName" style="display: none; opacity: 0;" />
 			</div>
 			<!-- password remember checkbox -->
 			<div class="form-floating mb-3">
